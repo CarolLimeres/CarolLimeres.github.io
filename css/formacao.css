@@ -1,0 +1,156 @@
+.formacao {
+  background: #141414;
+  color: #ffffff;
+}
+
+.formacao-container {
+  max-width: 1200px;
+  padding: 120px 20px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 100px; /* espçao entre as colunas do grid */
+  position: relative;
+}
+
+.formacao-container::after {
+  content: "";
+  display: block;
+  width: 130px;
+  height: 100px;
+  background: url("../img/detalhe.svg") no-repeat center;
+  position: absolute;
+  bottom: -50px; /* metade da altura p ficar la embaixo */
+  left: 20px;
+}
+
+.formacao .subtitulo {
+  color: #000000;
+  max-width: 5ch;
+}
+
+.formacao-texto {
+  font-size: 1.5rem;
+  line-height: 1.33;
+  max-width: 40ch; /* p texto ficar menor na tela */
+  margin-bottom: 60px;
+  color: #a3a3a3;
+}
+
+.formacao-texto strong {
+  color: #ffffff;
+}
+
+.faculdade-lista {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* p desgrudar os elementos */
+  margin-bottom: 60px;
+}
+
+.faculdade {
+  flex: 1; /* por padrão, se o elemento nao for display flex, ele vai tentar ter o tamanho maximo do conteudo, entao pra que os conteudos certinhos um do lado do outro basicamente do mesmo tamanho, é preciso colocar flex 1 */
+  background: #000000;
+  padding: 20px; /* p desgrudar das pontas */
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+}
+
+.faculdade-tipo {
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  color: #a3a3a3;
+  margin-bottom: 10px; /* esses elementos são spans por padrao, entao p conseguir aplicar essa margem (mudar p nao ser mais span) mudar o .faculdade p display flex e flex direction pra column */
+}
+
+.faculdade-curso {
+  flex: 1; /* isso vai fazer ele crescer o maximo que puder crescer p ocupar o espaço que ta, com isso empurra o nome da instituicao pra baixo */
+  font-size: 1.125rem;
+  line-height: 1.4;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.faculdade-curso::before {
+  content: "";
+  display: block;
+  width: 4px;
+  height: 20px;
+  background: linear-gradient(#b6f829, #67dd0a);
+  position: absolute;
+  left: -24px; /* tem 20 de padding e o item tem tamanho de 4 entao tem que ser o total negativo pra ele ir pro lado */
+}
+
+.faculdade-instituicao {
+  font-size: 1.125rem;
+  color: #a3a3a3;
+}
+
+.cursos {
+  margin-bottom: 60px; /* p dar espaçamento entre cursos e idiomas */
+}
+
+.formacao-extra h3 {
+  font-size: 0.875rem;
+  line-height: 1.4;
+  color: #8f8f8f;
+  text-transform: uppercase;
+  margin-bottom: 30px; /* p separar o conteudo do titulo */
+  position: relative;
+}
+
+.formacao-extra h3::before {
+  display: block;
+  content: "";
+  width: 24px;
+  height: 24px; /* sao exatamente os mesmos tamanhos dos pngs */
+
+  position: absolute; /* q ja fica relacionado ao h3 de .formacao-extra por causa do position relative que foi definido ali */
+  left: -36px; /* 24 + 12 = 36 */
+  top: -4px;
+}
+
+.cursos h3::before {
+  background: url("../img/cursos.svg") no-repeat center center;
+}
+
+.idiomas h3::before {
+  background: url("../img/idiomas.svg") no-repeat center center;
+}
+
+.formacao-extra li {
+  font-size: 1.125rem;
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+
+.formacao-extra span {
+  color: #8f8f8f;
+}
+
+.cursos li {
+  display: flex; /* p conseguir fazer com que um fique em um canto e o outro no outro */
+  justify-content: space-between; /* p ficar o curso em um canto e as horas no outro */
+}
+
+@media (max-width: 800px) {
+  .formacao-container {
+    grid-template-columns: 1fr;
+    padding: 60px 20px;
+    gap: 40px; /* entre o titulo formaçao e o conteudo */
+  }
+
+  .formacao .subtitulo {
+    color: #ffffff;
+  }
+
+  .formacao-texto {
+    font-size: 1.25rem;
+  }
+
+  .formacao-extra h3::before {
+    position: initial; /* p resolver o problema dos icones vazando da tela */
+    margin-bottom: 10px;
+  }
+}

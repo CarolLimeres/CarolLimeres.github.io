@@ -1,0 +1,41 @@
+body {
+  margin: 0px;
+  font-family: "Fira Sans", Arial, sans-serif;
+  color: #141414;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0px;
+}
+
+ul {
+  margin: 0px; /* p tirar a margem em volta do elemento, q vem como padrao em lista */ /*espaço entre elementos*/
+  padding: 0px; /* p tirar o espaço em volta do conteudo do elemento */ /* espaço dentro do elemento */
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto; /* definido automaticamente de acordo com a largura, p manter a razão da imagem sem esmagar ela...por causa do valor de height que defini no html */
+  display: block;
+  /* definições p imagem nao crescer infinitamente */
+}
+
+.subtitulo {
+  font-size: 8rem;
+  line-height: 1;
+  text-transform: uppercase;
+  word-break: break-all;
+  max-width: 4ch; /*p quebrar a palavra no 4º caractere, só nao quebra se for uma letra mt grande, ex: m */
+}
+
+@media (max-width: 800px) {
+  .subtitulo {
+    font-size: 3rem;
+    text-transform: capitalize;
+    max-width: initial !important; /* o !important sempre escreve por cima de qualquer outro elemento, no caso aqui está escrevendo por cima do max-width: 5ch que foi definido no formacao.css */
+  }
+}
